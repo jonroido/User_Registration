@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { UserForm } from "./UserForm";
 import { useRouteMatch, useHistory } from "react-router-dom";
-
+import { getUser, updateUser } from "./api";
 export const EditUser = () => {
   const match = useRouteMatch()
   const [user, setUser] = useState();
   const history = useHistory()
 
   useEffect(() => {
-   // get
+    const fetchUser = async () => {
+      const user = await getUser(match.params.id)
+      setUser(user)
+    }
+    fetchUser()
   }, []);
 
   const onSubmit = async (data) => {
-  //update
+    await updateUser(data, match.params.id)
     history.push("/")
   }
 
