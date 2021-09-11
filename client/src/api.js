@@ -8,7 +8,7 @@ export const createUser = (user) => fetch("http://localhost:4000/", {
 }) 
 export const getUsers = () => fetch("http://localhost:4000/").then(res => res.json())
 export const updateUser = (user, id) => fetch(`http://localhost:4000/${id}`, {
-  method: "POST",
+  method: "PUT",
   headers: {
     "Accept": "application/json",
     "Content-Type": "application/json"

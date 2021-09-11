@@ -3,7 +3,12 @@ import { useForm } from "react-hook-form";
 
 export const UserForm = ({ user, onSubmit }) => {
   const { register, handleSubmit } = useForm({
-    defaultValues: { text: user ? user.text : "" },
+    defaultValues: { 
+      firstName: user ? user.firstName : "" ,
+      lastName: user ? user.lastName : "" ,
+      email: user ? user.email : "" ,
+      username: user ? user.username : "" ,
+      password: user ? user.password : "" },
   });
 
   const submitHandler = handleSubmit((data) => {
@@ -13,59 +18,59 @@ export const UserForm = ({ user, onSubmit }) => {
   return (
     <form onSubmit={submitHandler}>
       <div className="form-group">
-        <label htmlFor="text">First Name:</label>
+        <label htmlFor="firstName">First Name:</label>
         <input
           className="form-control"
-          {...register('test', { required: true })}
+          {...register('firstName', { required: true })}
           type="text"
-          name="text"
-          id="text"
+          name="firstName"
+          id="firstName"
         />
       </div>
       <div className="form-group">
-        <label htmlFor="text">Last Name:</label>
+        <label htmlFor="lastName">Last Name:</label>
         <input
           className="form-control"
-          {...register('test', { required: true })}
+          {...register('lastName', { required: true })}
           type="text"
-          name="description"
-          id="description"
+          name="lastName"
+          id="lastName"
         />
       </div>
       <div className="form-group">
-        <label htmlFor="text">Email:</label>
+        <label htmlFor="email">Email:</label>
         <input
           className="form-control"
-          {...register('test', { required: true })}
+          {...register('email', { required: true })}
           type="text"
-          name="text"
-          id="text"
+          name="email"
+          id="email"
         />
       </div>
       <div className="form-group">
-        <label htmlFor="text">Username:</label>
+        <label htmlFor="username">Username:</label>
         <input
           className="form-control"
-          {...register('test', { required: true })}
+          {...register('username', { required: true })}
           type="text"
-          name="text"
-          id="text"
+          name="username"
+          id="username"
         />
       </div>
       <div className="form-group">
-        <label htmlFor="text">Password:</label>
+        <label htmlFor="password">Password:</label>
         <input
           className="form-control"
-          {...register('test', { required: true })}
+          {...register('password', { required: true })}
           type="text"
-          name="text"
-          id="text"
+          name="password"
+          id="password"
         />
       </div>
       <br/>
       <div className="form-group">
         <button type="submit" className="btn btn-primary">
-          Register User
+          Save User
         </button>
       </div>
     </form>

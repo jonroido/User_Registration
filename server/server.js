@@ -56,8 +56,11 @@ app.put("/:id", (req, res) => {
     if (!user) {
       res.status(404).send("User not found");
     } else {
-      user.text = req.body.text;
-
+      user.firstName = req.body.firstName;
+      user.lastName = req.body.lastName;
+      user.email = req.body.email;
+      user.username = req.body.username;
+      user.password = req.body.password;
       user
         .save()
         .then((user) => {
