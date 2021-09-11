@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getUsers } from "./api"
+import { getUsers,deleteUser } from "./api"
 export const UserList = () => {
-  const [items, setItems] = useState([{
-    _id:"123",
-    firstName:"John Lloyd",
-    lastName:"Trinidad",
-    email:"jltrinidad@gmail.com",
-    username:"jltrinidad",
-    password:"eqwsac213sd12e12sadasd12321sadasd12"
-  }]);
-
+  const [items, setItems] = useState([]);
+  const removeUser = async (id) => {
+    const newItems = items.filter(task => task._id !== id);
+    await deleteUser(id);
+    setItems(newItems);
+  };
   useEffect(() => {
     const fetchUsers = async () => {
       const users = await getUsers()
@@ -43,8 +40,8 @@ export const UserList = () => {
                 <td>{user.username}</td>
                 <td>{user.password}</td>
                 <td>
-                  <Link to={`/edit/${user._id}`}>Edit</Link>&nbsp;&nbsp;
-                  <Link to={`/delete/${user._id}`}>delete</Link>
+                <button ><Link to={`/edit/${user._id}`} style={{ textDecoration: 'none' ,color:'black'}}>Edit</Link></button>&nbsp;&nbsp;
+                  <button onClick={() =>removeUser(user._id)}>delete</button>
                 </td>
               </tr>
             ))}
