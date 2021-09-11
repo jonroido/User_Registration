@@ -13,7 +13,7 @@ export const UserForm = ({ user, onSubmit }) => {
   return (
     <form onSubmit={submitHandler}>
       <div className="form-group">
-        <label htmlFor="text">Text:</label>
+        <label htmlFor="text">First Name:</label>
         <input
           className="form-control"
           {...register('test', { required: true })}
@@ -23,7 +23,7 @@ export const UserForm = ({ user, onSubmit }) => {
         />
       </div>
       <div className="form-group">
-        <label htmlFor="text">Description:</label>
+        <label htmlFor="text">Last Name:</label>
         <input
           className="form-control"
           {...register('test', { required: true })}
@@ -32,10 +32,40 @@ export const UserForm = ({ user, onSubmit }) => {
           id="description"
         />
       </div>
+      <div className="form-group">
+        <label htmlFor="text">Email:</label>
+        <input
+          className="form-control"
+          {...register('test', { required: true })}
+          type="text"
+          name="text"
+          id="text"
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="text">Username:</label>
+        <input
+          className="form-control"
+          {...register('test', { required: true })}
+          type="text"
+          name="text"
+          id="text"
+        />
+      </div>
+      <div className="form-group">
+        <label htmlFor="text">Password:</label>
+        <input
+          className="form-control"
+          {...register('test', { required: true })}
+          type="text"
+          name="text"
+          id="text"
+        />
+      </div>
       <br/>
       <div className="form-group">
         <button type="submit" className="btn btn-primary">
-          Save User
+          Register User
         </button>
       </div>
     </form>

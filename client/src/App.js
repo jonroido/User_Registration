@@ -13,7 +13,7 @@ function App() {
             <Link to="/" className="nav-link">User Management</Link>
           </li>
           <li className="navbar-item">
-            <Link to="/create" className="nav-link">Create User</Link>
+            <Link to="/create" className="nav-link">Register User</Link>
           </li>
         </ul>
       </nav>
